@@ -87,7 +87,7 @@ public class AuthenticationManager implements MessageHandler
 				{
 					packets.wait();
 				}
-				catch (InterruptedException ign)
+				catch (InterruptedException ignored)
 				{
 				}
 			}
@@ -126,7 +126,7 @@ public class AuthenticationManager implements MessageHandler
 
 	private boolean initialize(String user) throws IOException
 	{
-		if (initDone == false)
+		if (!initDone)
 		{
 			tm.registerMessageHandler(this, 0, 255);
 
@@ -180,7 +180,7 @@ public class AuthenticationManager implements MessageHandler
 		{
 			initialize(user);
 
-			if (methodPossible("publickey") == false)
+			if (!methodPossible("publickey"))
 				throw new IOException("Authentication method publickey not supported by the server at this stage.");
 
 			if (key instanceof DSAPrivateKey)
@@ -330,7 +330,7 @@ e.printStackTrace();
 		{
 			initialize(user);
 
-			if (methodPossible("password") == false)
+			if (!methodPossible("password"))
 				throw new IOException("Authentication method password not supported by the server at this stage.");
 
 			PacketUserauthRequestPassword ua = new PacketUserauthRequestPassword("ssh-connection", user, pass);
@@ -371,7 +371,7 @@ e.printStackTrace();
 		{
 			initialize(user);
 
-			if (methodPossible("keyboard-interactive") == false)
+			if (!methodPossible("keyboard-interactive"))
 				throw new IOException(
 						"Authentication method keyboard-interactive not supported by the server at this stage.");
 

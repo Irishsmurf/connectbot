@@ -307,11 +307,11 @@ public class DES implements BlockCipher
 		work = ((right >>> 8) ^ left) & 0x00ff00ff;
 		left ^= work;
 		right ^= (work << 8);
-		right = ((right << 1) | ((right >>> 31) & 1)) & 0xffffffff;
+		right = ((right << 1) | ((right >>> 31) & 1));
 		work = (left ^ right) & 0xaaaaaaaa;
 		left ^= work;
 		right ^= work;
-		left = ((left << 1) | ((left >>> 31) & 1)) & 0xffffffff;
+		left = ((left << 1) | ((left >>> 31) & 1));
 
 		for (int round = 0; round < 8; round++)
 		{

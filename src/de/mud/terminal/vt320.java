@@ -2136,11 +2136,11 @@ public void setScreenSize(int c, int r, boolean broadcast) {
             term_state = TSTATE_DCEQ;
             break;
           case 's': // XTERM_SAVE missing!
-            if (true || debug > 1)
+            if (true)
               debug("ESC [ ? " + DCEvars[0] + " s unimplemented!");
             break;
           case 'r': // XTERM_RESTORE
-            if (true || debug > 1)
+            if (true)
               debug("ESC [ ? " + DCEvars[0] + " r");
             /* DEC Mode reset */
             for (int i = 0; i <= DCEvar; i++) {

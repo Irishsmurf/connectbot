@@ -199,7 +199,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				is.close();
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 
@@ -207,7 +207,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.close();
 			}
-			catch (IOException e2)
+			catch (IOException ignored)
 			{
 			}
 
@@ -215,7 +215,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				c.cm.closeChannel(c, "IOException in agent forwarder (" + e.getMessage() + ")", true);
 			}
-			catch (IOException e3)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -227,7 +227,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			/* This will lead to an IOException in the is.read() call */
 			is.close();
 		}
-		catch (IOException e)
+		catch (IOException ignored)
 		{
 		}
 	}
@@ -393,7 +393,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -420,7 +420,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -446,7 +446,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -505,7 +505,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -533,7 +533,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}
@@ -559,7 +559,7 @@ public class AuthAgentForwardThread extends Thread implements IChannelWorkerThre
 			{
 				os.write(SSH_AGENT_FAILURE);
 			}
-			catch (IOException e1)
+			catch (IOException ignored)
 			{
 			}
 		}

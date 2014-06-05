@@ -9,10 +9,6 @@ import java.net.InetSocketAddress;
 import java.net.SocketTimeoutException;
 import java.security.KeyPair;
 import java.security.SecureRandom;
-import java.security.Security;
-import java.util.Set;
-import java.util.Vector;
-
 import com.trilead.ssh2.auth.AuthenticationManager;
 import com.trilead.ssh2.channel.ChannelManager;
 import com.trilead.ssh2.crypto.CryptoWishList;
@@ -611,7 +607,7 @@ public class Connection
 
 		if (tm != null)
 		{
-			tm.close(t, hard == false);
+			tm.close(t, !hard);
 			tm = null;
 		}
 		am = null;
@@ -1574,7 +1570,7 @@ public class Connection
 	{
 		Logger.enabled = enable;
 
-		if (enable == false)
+		if (!enable)
 		{
 			Logger.logger = null;
 		}

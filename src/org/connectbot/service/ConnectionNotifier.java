@@ -141,7 +141,7 @@ public abstract class ConnectionNotifier {
 		public PreEclair() {
 			try {
 				setForeground = Service.class.getMethod("setForeground", setForegroundSignature);
-			} catch (Exception e) {
+			} catch (Exception ignored) {
 			}
 		}
 
@@ -152,8 +152,8 @@ public abstract class ConnectionNotifier {
 				setForegroundArgs[0] = Boolean.TRUE;
 				try {
 					setForeground.invoke(context, setForegroundArgs);
-				} catch (InvocationTargetException e) {
-				} catch (IllegalAccessException e) {
+				} catch (InvocationTargetException ignored) {
+				} catch (IllegalAccessException ignored) {
 				}
 				getNotificationManager(context).notify(ONLINE_NOTIFICATION, newRunningNotification(context));
 			}
@@ -166,8 +166,8 @@ public abstract class ConnectionNotifier {
 				setForegroundArgs[0] = Boolean.FALSE;
 				try {
 					setForeground.invoke(context, setForegroundArgs);
-				} catch (InvocationTargetException e) {
-				} catch (IllegalAccessException e) {
+				} catch (InvocationTargetException ignored) {
+				} catch (IllegalAccessException ignored) {
 				}
 				getNotificationManager(context).cancel(ONLINE_NOTIFICATION);
 			}

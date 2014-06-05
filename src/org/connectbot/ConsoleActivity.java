@@ -109,9 +109,9 @@ public class ConsoleActivity extends Activity {
 
 	private RelativeLayout booleanPromptGroup;
 	private TextView booleanPrompt;
-	private Button booleanYes, booleanNo;
+	private Button booleanYes;
 
-	private RelativeLayout keyboardGroup;
+    private RelativeLayout keyboardGroup;
 	private Runnable keyboardGroupHider;
 
 	private TextView empty;
@@ -364,15 +364,15 @@ public class ConsoleActivity extends Activity {
 			}
 		});
 
-		booleanNo = (Button)findViewById(R.id.console_prompt_no);
+        Button booleanNo = (Button) findViewById(R.id.console_prompt_no);
 		booleanNo.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				PromptHelper helper = getCurrentPromptHelper();
-				if(helper == null) return;
-				helper.setResponse(Boolean.FALSE);
-				updatePromptVisible();
-			}
-		});
+            public void onClick(View v) {
+                PromptHelper helper = getCurrentPromptHelper();
+                if (helper == null) return;
+                helper.setResponse(Boolean.FALSE);
+                updatePromptVisible();
+            }
+        });
 
 		// preload animations for terminal switching
 		slide_left_in = AnimationUtils.loadAnimation(this, R.anim.slide_left_in);
@@ -435,7 +435,7 @@ public class ConsoleActivity extends Activity {
 		actionBar.addOnMenuVisibilityListener(new ActionBarWrapper.OnMenuVisibilityListener() {
 			public void onMenuVisibilityChanged(boolean isVisible) {
 				inActionBarMenu = isVisible;
-				if (isVisible == false) {
+				if (!isVisible) {
 					hideEmulatedKeys();
 				}
 			}

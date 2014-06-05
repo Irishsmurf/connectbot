@@ -185,7 +185,6 @@ public class ProxyServer implements Runnable{
         }
       }catch(IOException ioe){
         ioe.printStackTrace();
-      }finally{
       }
    }
 
@@ -395,11 +394,9 @@ public class ProxyServer implements Runnable{
         //System.out.println("Interrupted");
         if(mode != PIPE_MODE)
           return;//If accept thread was not successfull return.
-      }finally{
-        //System.out.println("Finnaly!");
       }
 
-      if(eof < 0)//Connection closed while we were trying to accept;
+       if(eof < 0)//Connection closed while we were trying to accept;
         return;
       
       //Do not restore timeout, instead timeout is set on the

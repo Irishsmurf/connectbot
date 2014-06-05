@@ -68,14 +68,12 @@ public class GeneratePubkeyActivity extends Activity implements OnEntropyGathere
 	private LayoutInflater inflater = null;
 
 	private EditText nickname;
-	private RadioGroup keyTypeGroup;
-	private SeekBar bitsSlider;
+    private SeekBar bitsSlider;
 	private EditText bitsText;
 	private CheckBox unlockAtStartup;
 	private CheckBox confirmUse;
 	private Button save;
-	private Dialog entropyDialog;
-	private ProgressDialog progress;
+    private ProgressDialog progress;
 
 	private EditText password1, password2;
 
@@ -93,7 +91,7 @@ public class GeneratePubkeyActivity extends Activity implements OnEntropyGathere
 
 		nickname = (EditText) findViewById(R.id.nickname);
 
-		keyTypeGroup = (RadioGroup) findViewById(R.id.key_type);
+        RadioGroup keyTypeGroup = (RadioGroup) findViewById(R.id.key_type);
 
 		bitsText = (EditText) findViewById(R.id.bits);
 		bitsSlider = (SeekBar) findViewById(R.id.bits_slider);
@@ -115,40 +113,40 @@ public class GeneratePubkeyActivity extends Activity implements OnEntropyGathere
 
 		keyTypeGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-			public void onCheckedChanged(RadioGroup group, int checkedId) {
-				if (checkedId == R.id.rsa) {
-					minBits = RSA_MINIMUM_BITS;
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == R.id.rsa) {
+                    minBits = RSA_MINIMUM_BITS;
 
-					bitsSlider.setEnabled(true);
-					bitsSlider.setProgress(DEFAULT_BITS - minBits);
+                    bitsSlider.setEnabled(true);
+                    bitsSlider.setProgress(DEFAULT_BITS - minBits);
 
-					bitsText.setText(String.valueOf(DEFAULT_BITS));
-					bitsText.setEnabled(true);
+                    bitsText.setText(String.valueOf(DEFAULT_BITS));
+                    bitsText.setEnabled(true);
 
-					keyType = PubkeyDatabase.KEY_TYPE_RSA;
-				} else if (checkedId == R.id.dsa) {
-					// DSA keys can only be 1024 bits
+                    keyType = PubkeyDatabase.KEY_TYPE_RSA;
+                } else if (checkedId == R.id.dsa) {
+                    // DSA keys can only be 1024 bits
 
-					bitsSlider.setEnabled(false);
-					bitsSlider.setProgress(DEFAULT_BITS - minBits);
+                    bitsSlider.setEnabled(false);
+                    bitsSlider.setProgress(DEFAULT_BITS - minBits);
 
-					bitsText.setText(String.valueOf(DEFAULT_BITS));
-					bitsText.setEnabled(false);
+                    bitsText.setText(String.valueOf(DEFAULT_BITS));
+                    bitsText.setEnabled(false);
 
-					keyType = PubkeyDatabase.KEY_TYPE_DSA;
-				} else if (checkedId == R.id.ec) {
-					minBits = ECDSA_DEFAULT_BITS;
+                    keyType = PubkeyDatabase.KEY_TYPE_DSA;
+                } else if (checkedId == R.id.ec) {
+                    minBits = ECDSA_DEFAULT_BITS;
 
-					bitsSlider.setEnabled(true);
-					bitsSlider.setProgress(ECDSA_DEFAULT_BITS - minBits);
+                    bitsSlider.setEnabled(true);
+                    bitsSlider.setProgress(ECDSA_DEFAULT_BITS - minBits);
 
-					bitsText.setText(String.valueOf(ECDSA_DEFAULT_BITS));
-					bitsText.setEnabled(true);
+                    bitsText.setText(String.valueOf(ECDSA_DEFAULT_BITS));
+                    bitsText.setEnabled(true);
 
-					keyType = PubkeyDatabase.KEY_TYPE_EC;
-				}
-			}
-		});
+                    keyType = PubkeyDatabase.KEY_TYPE_EC;
+                }
+            }
+        });
 
 		bitsSlider.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
 
@@ -224,7 +222,7 @@ public class GeneratePubkeyActivity extends Activity implements OnEntropyGathere
 	private void startEntropyGather() {
 		final View entropyView = inflater.inflate(R.layout.dia_gatherentropy, null, false);
 		((EntropyView)entropyView.findViewById(R.id.entropy)).addOnEntropyGatheredListener(GeneratePubkeyActivity.this);
-		entropyDialog = new EntropyDialog(GeneratePubkeyActivity.this, entropyView);
+        Dialog entropyDialog = new EntropyDialog(GeneratePubkeyActivity.this, entropyView);
 		entropyDialog.show();
 	}
 

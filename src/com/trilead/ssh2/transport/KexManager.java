@@ -165,12 +165,12 @@ public class KexManager
 		if (cpar == null || spar == null)
 			throw new IllegalArgumentException();
 
-		if (compareFirstOfNameList(cpar.kex_algorithms, spar.kex_algorithms) == false)
+		if (!compareFirstOfNameList(cpar.kex_algorithms, spar.kex_algorithms))
 		{
 			return false;
 		}
 
-		if (compareFirstOfNameList(cpar.server_host_key_algorithms, spar.server_host_key_algorithms) == false)
+		if (!compareFirstOfNameList(cpar.server_host_key_algorithms, spar.server_host_key_algorithms))
 		{
 			return false;
 		}
@@ -441,7 +441,7 @@ public class KexManager
 			if (kxs.np == null)
 				throw new IOException("Cannot negotiate, proposals do not match.");
 
-			if (kxs.remoteKEX.isFirst_kex_packet_follows() && (kxs.np.guessOK == false))
+			if (kxs.remoteKEX.isFirst_kex_packet_follows() && (!kxs.np.guessOK))
 			{
 				/*
 				 * Guess was wrong, we need to ignore the next kex packet.
@@ -577,7 +577,7 @@ public class KexManager
 								"The server hostkey was not accepted by the verifier callback.").initCause(e);
 					}
 
-					if (vres == false)
+					if (!vres)
 						throw new IOException("The server hostkey was not accepted by the verifier callback");
 				}
 
@@ -597,7 +597,7 @@ public class KexManager
 
 				boolean res = verifySignature(dhgexrpl.getSignature(), kxs.hostkey);
 
-				if (res == false)
+				if (!res)
 					throw new IOException("Hostkey signature sent by remote is wrong!");
 
 				kxs.K = kxs.dhgx.getK();
@@ -637,7 +637,7 @@ public class KexManager
 								"The server hostkey was not accepted by the verifier callback.").initCause(e);
 					}
 
-					if (vres == false)
+					if (!vres)
 						throw new IOException("The server hostkey was not accepted by the verifier callback");
 				}
 
@@ -655,7 +655,7 @@ public class KexManager
 
 				boolean res = verifySignature(dhr.getSignature(), kxs.hostkey);
 
-				if (res == false)
+				if (!res)
 					throw new IOException("Hostkey signature sent by remote is wrong!");
 
 				kxs.K = kxs.dhx.getK();
