@@ -170,7 +170,6 @@ public Object clone(){
                  "Connection to proxy lost."));
          }
          if(versionNumber < version){
-           //What should we do??
          }
          if(selectedMethod == 0xFF){ //No method selected
             ps.close();

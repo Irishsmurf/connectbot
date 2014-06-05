@@ -595,8 +595,6 @@ public class ConsoleActivity extends Activity {
 					}
 				}
 
-				Configuration config = getResources().getConfiguration();
-
 				if (event.getAction() == MotionEvent.ACTION_DOWN) {
 					lastX = event.getX();
 					lastY = event.getY();

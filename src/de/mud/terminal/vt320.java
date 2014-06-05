@@ -143,8 +143,6 @@ public abstract class vt320 extends VDUBuffer implements VDUInput {
 
   @Override
 public void setScreenSize(int c, int r, boolean broadcast) {
-    int oldrows = height;
-
     if (debug>2) {
       if (debugStr == null)
         debugStr = new StringBuilder();
@@ -781,7 +779,7 @@ public void setScreenSize(int c, int r, boolean broadcast) {
    * @return a unescaped string
    */
   static String unEscape(String tmp) {
-    int idx = 0, oldidx = 0;
+    int idx, oldidx = 0;
     String cmd;
     // f.println("unescape("+tmp+")");
     cmd = "";

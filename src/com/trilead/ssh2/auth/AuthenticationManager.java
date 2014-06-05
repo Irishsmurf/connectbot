@@ -44,7 +44,7 @@ public class AuthenticationManager implements MessageHandler
 {
 	TransportManager tm;
 
-	Vector packets = new Vector();
+	final Vector packets = new Vector();
 	boolean connectionClosed = false;
 
 	String banner;

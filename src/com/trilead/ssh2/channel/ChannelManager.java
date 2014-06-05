@@ -44,7 +44,7 @@ public class ChannelManager implements MessageHandler
 
 	private TransportManager tm;
 
-	private Vector<Channel> channels = new Vector<Channel>();
+	private final Vector<Channel> channels = new Vector<Channel>();
 	private int nextLocalChannel = 100;
 	private boolean shutdown = false;
 	private int globalSuccessCounter = 0;

@@ -208,7 +208,7 @@ final class Inflate{
         z.istate.mode=DICT1;
       case DICT1:
 
-        if(z.avail_in==0)return r;r=f;
+        if(z.avail_in==0)return r;
 
         z.avail_in--; z.total_in++;
         z.istate.need += (z.next_in[z.next_in_index++]&0xffL);

@@ -41,7 +41,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.FontMetrics;
 import android.graphics.Typeface;
-import android.text.ClipboardManager;
+import android.content.ClipboardManager;
 import android.util.Log;
 import de.mud.terminal.VDUBuffer;
 import de.mud.terminal.VDUDisplay;

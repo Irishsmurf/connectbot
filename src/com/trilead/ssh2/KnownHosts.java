@@ -719,13 +719,7 @@ public class KnownHosts
 			throw new IllegalArgumentException("Unknown hash type " + type);
 		}
 
-		if (keyType.startsWith("ecdsa-sha2-"))
-		{
-		}
-		else if ("ssh-rsa".equals(keyType))
-		{
-		}
-		else if ("ssh-dss".equals(keyType))
+		if (keyType.startsWith("ecdsa-sha2-") || "ssh-rsa".equals(keyType) || "ssh-dss".equals(keyType) )
 		{
 		}
 		else
