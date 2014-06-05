@@ -170,7 +170,7 @@ public class DynamicAcceptThread extends Thread implements IChannelWorkerThread 
 			if (msg instanceof Socks5Message) {
 				response = new Socks5Message(Proxy.SOCKS_SUCCESS, (InetAddress)null, 0);
 			} else {
-				response = new Socks4Message(Socks4Message.REPLY_OK, (InetAddress)null, 0);
+				response = new Socks4Message(Socks4Message.REPLY_OK, null, 0);
 			}
 			response.write(out);
 
